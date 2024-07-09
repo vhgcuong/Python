@@ -38,3 +38,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     move_files(args.path)
+
+    print("After moving directories:")
+    print(os.listdir(args.path))
