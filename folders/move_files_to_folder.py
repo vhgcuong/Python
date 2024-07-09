@@ -1,4 +1,6 @@
 import os
+import re
+import shutil
 import argparse
 from datetime import datetime
 
@@ -11,20 +13,18 @@ def convert_string_to_date(date_string):
         return None
 
 
-def rename_folders(path):
+def move_files(path):
     with os.scandir(path) as itr:
         for entry in itr:
-            if entry.is_dir():
-                date_object = convert_string_to_date(entry.name)
-                if date_object is None:
-                    continue
-                new_folder_name = date_object.strftime("%Y_%m_%d")
-                new_folder_path = os.path.join(path, new_folder_name)
-                try:
-                    os.rename(entry.path, new_folder_path)
-                    print(f"Renamed '{entry.path}' to '{new_folder_path}'")
-                except OSError as e:
-                    print(f"Error renaming folder '{entry.path}': {e}")
+            file_name = entry.name
+            pattern = r"\d{4}-\d{2}-\d{2}"
+            match = re.search(pattern, file_name)
+            if match:
+                date_time = match.group()
+                path_new = f"{os.path.join(path, date_time)}"
+                if os.path.isdir(path_new) is False:
+                    os.mkdir(path=path_new)
+                shutil.move(entry.path, f"{os.path.join(path, date_time)}")
 
 
 if __name__ == "__main__":
@@ -37,4 +37,4 @@ if __name__ == "__main__":
     parser.add_argument('--path', type=str, required=True)
     args = parser.parse_args()
 
-    rename_folders(args.path)
+    move_files(args.path)
