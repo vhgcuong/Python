@@ -28,16 +28,17 @@ def move_files(path):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="""The path to the directory
-                containing the folders to be rename
-                ex: 17_04_2024 ---> 2024_04_17"""
-    )
+    # parser = argparse.ArgumentParser(
+    #     description="""The path to the directory
+    #             containing the folders to be rename
+    #             ex: 17_04_2024 ---> 2024_04_17"""
+    # )
+    #
+    # parser.add_argument('--path', type=str, required=True)
+    # args = parser.parse_args()
+    path = f'/home/{os.getlogin()}/Pictures/Screenshots'
 
-    parser.add_argument('--path', type=str, required=True)
-    args = parser.parse_args()
-
-    move_files(args.path)
+    move_files(path)
 
     print("After moving directories:")
-    print(os.listdir(args.path))
+    print(os.listdir(path))

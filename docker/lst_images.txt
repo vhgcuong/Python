@@ -1,0 +1,22 @@
+REPOSITORY                                                        TAG           IMAGE ID       CREATED         SIZE
+734239140076.dkr.ecr.ap-northeast-1.amazonaws.com/h4              development   6865bd04bc86   8 days ago      1.23GB
+public.ecr.aws/docker/library/mysql                               8.0.38        6c54cbcf775a   2 weeks ago     572MB
+h4-dashboard                                                      latest        211ed56f0b3f   2 weeks ago     793MB
+airflow_project-airflow-scheduler                                 latest        2d22cf30d9e9   6 weeks ago     1.76GB
+airflow_project-airflow-init                                      latest        2f69e03666c9   6 weeks ago     1.76GB
+airflow_project-airflow-webserver                                 latest        9232d1b7e9da   6 weeks ago     1.76GB
+airflow_project-airflow-triggerer                                 latest        89305289ad4d   6 weeks ago     1.76GB
+airflow_project-airflow-worker                                    latest        64aff9c3cacf   6 weeks ago     1.76GB
+postgres                                                          latest        cff6b68a194a   2 months ago    432MB
+panasonic_server_api-panasonic-api-nginx                          latest        ce5dea5aa7da   3 months ago    233MB
+job                                                               latest        05475441051a   3 months ago    1.04GB
+panasonic_server_api-panasonic-api-php                            latest        3b02b102c719   3 months ago    564MB
+postgis/postgis                                                   16-3.4        40611bc383d5   3 months ago    609MB
+redis                                                             latest        9509c4dd19fb   3 months ago    116MB
+postgres                                                          13            f51f4345bd9d   4 months ago    419MB
+postgres                                                          15-alpine     555a3df232f5   5 months ago    240MB
+redis                                                             alpine        435993df2c8d   6 months ago    41MB
+744659622514.dkr.ecr.ap-northeast-1.amazonaws.com/job             20230717      12c7b3d47f5d   12 months ago   1.78GB
+744659622514.dkr.ecr.ap-northeast-1.amazonaws.com/analytics-api   20210614      edc84496ba55   3 years ago     1.38GB
+744659622514.dkr.ecr.ap-northeast-1.amazonaws.com/h4-api-nginx    20210519      4314e8a81bb8   3 years ago     1.17GB
+744659622514.dkr.ecr.ap-northeast-1.amazonaws.com/mysql           20190710      57ca879ced40   5 years ago     373MB
