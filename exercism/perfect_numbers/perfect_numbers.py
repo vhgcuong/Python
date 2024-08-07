@@ -10,24 +10,8 @@ def classify(number):
     if number < 1:
         raise ValueError("Classification is only possible for positive integers.")
 
-    if number == 1:
-        return "deficient"
-
-    factors = {1}
-    for i in range(2, int(sqrt(number)) + 1):
-        if number % i == 0:
-            factors.add(i)
-            factors.add(number // i)
-
-    factor_sum = sum(factors)
-
-    match (factor_sum == number, factor_sum < number):
-        case (True, False):
-            return "perfect"
-        case (False, True):
-            return "deficient"
-        case (_, _):
-            return "abundant"
+    d = sum(m for m in range(1, number) if number % m == 0) - number
+    return ("deficient", "perfect", "abundant")[(d >= 0) + (d > 0)]
 
 
 if __name__ == '__main__':
