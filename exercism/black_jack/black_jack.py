@@ -56,16 +56,16 @@ def value_of_ace(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    if card_one == 'A' or card_two == 'A':
-        return 11
-
-    if card_one == 'A' and card_two == 'A':
-        return 1
-
     one = value_of_card(card_one)
     two = value_of_card(card_two)
 
-    if BLACK_JACK - sum([one, two]) > 11:
+    if one > 10 or two > 10:
+        return 1
+
+    if card_one == 'A' or card_two == 'A':
+        return 1
+
+    if BLACK_JACK - sum([one, two]) >= 11:
         return 11
     return 1
 
