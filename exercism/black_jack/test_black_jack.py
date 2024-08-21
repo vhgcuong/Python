@@ -16,7 +16,7 @@ def test_convert_card_value(card, expected):
 
 
 
-test_data = [('A', 'A', ('A', 'A')),
+higher_card_test_data = [('A', 'A', ('A', 'A')),
              ('10', 'J', ('10', 'J')),
              ('3', 'A', '3'),
              ('3', '6', '6'),
@@ -25,4 +25,9 @@ test_data = [('A', 'A', ('A', 'A')),
              ('9',  '10', '10'),
              ('6', '9', '9'),
              ('4', '8', '8')]
+
+@pytest.mark.parametrize("one, two, expected", higher_card_test_data)
+def test_higher_card(one, two, expected):
+    actual_result = black_jack.higher_card(one, two)
+    assert actual_result == expected
 

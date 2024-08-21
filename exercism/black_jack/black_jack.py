@@ -42,7 +42,7 @@ def higher_card(card_one, card_two):
     two = value_of_card(card_two)
     if one == two:
         return (card_one, card_two)
-    return one if one > two else two
+    return str(one) if one > two else str(two)
 
 
 def value_of_ace(card_one, card_two):
