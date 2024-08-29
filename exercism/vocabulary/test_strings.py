@@ -2,11 +2,9 @@ import pytest
 import strings
 
 
-data_test_prefix = [
-    ("happy", "unhappy"), ("clear", "unclear"), ("fair", "unfair"), ("certain", "uncertain"),
-    ("likely", "unlikely"), ("seen", "unseen"), ("usual", "unusual"), ("necessary", "unnecessary"),
-    ("finished", "unfinished"), ("aware", "unaware")
-]
+input_data = ['happy', 'manageable', 'fold', 'eaten', 'avoidable', 'usual']
+result_data = [f'un{item}' for item in input_data]
+data_test_prefix = list(zip(input_data, result_data))
 
 
 @pytest.mark.parametrize("word, expected", data_test_prefix)
@@ -35,19 +33,9 @@ def test_make_word_groups(word, expected):
     assert actual_result == expected, err_msg
 
 
-data_test_suffix_ness = [
-    ("Happiness", "Happy"),
-    ("Kindness", "Kind"),
-    ("Darkness", "Dark"),
-    ("Weakness", "Weak"),
-    ("Sadness", "Sad"),
-    ("Cleanliness", "Cleanly"),
-    ("Illness", "Ill"),
-    ("Quietness", "Quiet"),
-    ("Fairness", "Fair"),
-    ("Laziness", "Lazy"),
-    ("Test", "Test")
-]
+input_data = ['heaviness', 'sadness', 'softness', 'crabbiness', 'lightness', 'artiness', 'edginess']
+result_data = ['heavy', 'sad', 'soft', 'crabby', 'light', 'arty', 'edgy']
+data_test_suffix_ness = list(zip(input_data, result_data))
 
 
 @pytest.mark.parametrize("word, expected", data_test_suffix_ness)
@@ -59,15 +47,23 @@ def test_remove_suffix_ness(word, expected):
     assert actual_result == expected, err_msg
 
 
-data_test_adjective_to_verb = [
-    (('I need to make that bright.', -1), 'brighten'),
-    (('It got dark as the sun set.', 2), 'darken')
-]
+input_data = ['Look at the bright sky.',
+              'His expression went dark.',
+              'The bread got hard after sitting out.',
+              'The butter got soft in the sun.',
+              'Her eyes were light blue.',
+              'The morning fog made everything damp with mist.',
+              'He cut the fence pickets short by mistake.',
+              'Charles made weak crying noises.',
+              'The black oil got on the white dog.']
+index_data = [-2, -1, 3, 3, -2, -3, 5, 2, 1]
+result_data = ['brighten', 'darken', 'harden', 'soften',
+               'lighten', 'dampen', 'shorten', 'weaken', 'blacken']
+data_test_adjective_to_verb = list(zip(input_data, index_data, result_data))
 
 
-@pytest.mark.parametrize("data, expected", data_test_adjective_to_verb)
-def test_adjective_to_verb(data, expected):
-    sentence, index  = data
+@pytest.mark.parametrize("sentence, index, expected", data_test_adjective_to_verb)
+def test_adjective_to_verb(sentence, index, expected):
     words = sentence.split(" ")
     word = words[index]
 
