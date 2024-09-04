@@ -4,9 +4,10 @@ ALPHABET = set(ascii_lowercase)
 
 
 def is_isogram(string: str):
-    lst = list(filter(lambda char: char in ALPHABET, set(string.lower())))
+    str_convert = string.lower()
+    lst = list(filter(lambda char: char in ALPHABET, set(str_convert)))
     for item in lst:
-        if (string.lower()).count(item) > 1:
+        if (str_convert).count(item) > 1:
             return False
     return True
 
